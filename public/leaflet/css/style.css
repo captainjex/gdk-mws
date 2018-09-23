@@ -26,3 +26,15 @@ body {
   background: yellow;
   grid-column:6/-1;
 }
+
+@media screen and (max-width: 400px) {
+  .gambar {
+    grid-column: 1/-1;
+  }
+  .review {
+    grid-column: 1/-1;
+  }
+  .container {
+    grid-template-rows: 400px 100px 100px;
+  }
+}
