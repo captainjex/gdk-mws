@@ -1,0 +1,51 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-
+    scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin="" />
+</head>
+
+<body>
+  <div class='container'>
+    <div class='peta' id='mapid'> </div>
+    <div class='gambar'>
+      Gambar Disini
+    </div>
+    <div class='review'>Tulis review disini</div>
+  </div>
+</body>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+  crossorigin=""></script>
+<script>
+  let mymap = L.map('mapid').setView([-8.701660, 115.169856], 14);
+  var arr_marker = [
+    [-8.701660, 115.169856],
+    [-8.701660, 115.269856],
+    [-8.701660, 115.369856],
+    [-8.701660, 115.469856],
+    [-8.701660, 115.569856]
+  ];
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 20,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1Ijoid2t3a3NhbWEiLCJhIjoiY2ptZWt3YnVxMG15czN4cDNuZW91YjdtOCJ9.JCvpruf8NnvNSKNBkBXbGg'
+  }).addTo(mymap);
+
+  for (m of arr_marker) {
+    L.marker(m).addTo(mymap);
+  }
+
+  let popup = L.popup()
+      .setLatLng([-8.703315, 115.168869])
+      .setContent("Tempat terbaik disini.")
+      .openOn(mymap);
+
+
+</script>
+
+</html>
